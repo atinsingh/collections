@@ -1,8 +1,8 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 
 public class Main {
@@ -49,7 +49,7 @@ public class Main {
        // System.out.println(guestList.removeAll(Arrays.asList("Amar", "Joel", "Sparsh")));
         System.out.println("After Removal  : " + guestList);
 
-       // guestList.retainAll(Arrays.asList("Amar", "Joel", "Shivam"));
+       // guestList.retainAll(tList);
 
         System.out.println("After Retain  : " + guestList);
 
@@ -58,9 +58,65 @@ public class Main {
 
         System.out.println(guestList);
 
+        List<String> subList = guestList.subList(0, 3);
+        System.out.println("SubList " + subList);
 
+        Predicate<String> predicate = new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+                return s.length()>5;
+            }
+        };
+
+        Consumer<String> consumer = new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                System.out.println(s);
+            }
+        };
+        guestList.removeIf(predicate);
+
+        System.out.println(guestList);
+
+        //guestList.forEach(consumer);
+//        for (String st : guestList  ) {
+//            System.out.println(st); // wont allow you change collection
+//        }
+
+        Iterator<String> iterator = guestList.iterator();
+
+        while (iterator.hasNext()) {
+            String elem = iterator.next();
+            if (elem.equals("Atin")){
+                iterator.remove();
+            }
+
+        }
+
+        System.out.println(guestList);
+
+        Object[] objects = guestList.toArray();
+        System.out.println(objects[0]);
+        String [] names = new String[guestList.size()];
+
+        names =  guestList.toArray(names);
+        // List is ordered
+        // sorted  --  1,2,3,5,
+
+        guestList.sort(new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return s1.compareTo(s2);
+            }
+        } );
+        System.out.println(guestList);
+            // LIST
+        for (int i = 0; i < guestList.size() ; i++) {
+            System.out.println(guestList.get(i));
+        }
 
 
     }
+
 
 }

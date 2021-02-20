@@ -15,3 +15,8 @@ addAll(int index, Collection<? extends E>  e);
 
 int size();
 
+
+// List is an ordered collection
+
+// Set is sorted collection of unique element
+// 
