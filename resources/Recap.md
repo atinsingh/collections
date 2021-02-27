@@ -20,3 +20,4 @@ int size();
 
 // Set is sorted collection of unique element
 // 
+## Lamdas
