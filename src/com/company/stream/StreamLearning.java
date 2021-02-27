@@ -39,7 +39,7 @@ public class StreamLearning {
         dishes.stream()
                 .filter(d -> d.getCalories() <= 400)
                 .filter(dish -> dish.getDishType() == DishType.VEG)
-                .map(dish -> dish.getIngredients())
+                .map(Dish::getDishName)
                 .distinct().collect(Collectors.toList()).forEach(System.out::println);
 
 
